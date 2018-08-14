@@ -1,4 +1,5 @@
-PS1="\[\e[2m\\h \W\e[m\] > \[$(tput sgr0)\]"
+PS1="\h:\[$(tput sgr0)\]\[\033[38;5;6m\][\w]:\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+#PS1="\[\e[2m\\h \W\e[m\] > \[$(tput sgr0)\]"
 #PS1="\h \W > \[$(tput sgr0)\]"
 
 export SVN_EDITOR=vi
@@ -20,9 +21,10 @@ if [ -f '/Users/mgoh/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/
 if [ -f '/Users/mgoh/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/mgoh/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
 alias personal='7z e -so ~/notes/personal.7z |less'
-alias socks='ssh -D 9999 -f -C -q -N red'
-alias kill_s="ps -ef|grep ssh\ -D|grep -v grep| awk '{print \$2}' | xargs kill -3"
-
+alias enable_s='sudo networksetup -setsocksfirewallproxy "Wi-Fi" localhost 9999'
+alias socks='sudo networksetup -setsocksfirewallproxy "Wi-Fi" localhost 9999; ssh -D 9999 -f -C -q -N red'
+#alias socks='ssh -D 9999 -f -C -q -N red'
+alias kill_s="ps -ef|grep ssh\ -D|grep -v grep| awk '{print \$2}' | xargs kill -3; sudo networksetup -setsocksfirewallproxy 'Wi-Fi' '' ''"
 # pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
