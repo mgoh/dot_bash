@@ -5,7 +5,7 @@ PS1="\h:\[$(tput sgr0)\]\[\033[38;5;6m\][\w]:\[$(tput sgr0)\]\[\033[38;5;15m\] \
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin:/usr/local/bin:/Users/mgoh/.gem/ruby/2.0.0/bin:${HOME}/.pyenv/bin
 export WORKON_HOME=$HOME/dev/.virtualenvs
 export PROJECT_HOME=$HOME/dev
-#source /usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 source /Users/mgoh/.iterm2_shell_integration.bash
 
